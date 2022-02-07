@@ -62,13 +62,20 @@ class Field {
   }
 
   static generateRandomField(rows,columns,percentage){
-    let randomArray = new Array(rows).fill(0).map(el => new Array(columns))
+    let randomArray = [];
     for (let i=0;i<rows;i++) {
+        randomArray[i]=[]
         for (let j=0;j<columns;j++) {
-            const prob = Math.random();
-            randomArray[i][j] = prob > percentage ? fieldCharacter : hole;
+            let prob = Math.random()
+            if (prob>percentage) {
+                randomArray[i][j]=fieldCharacter
+            } else {
+                randomArray[i][j]=hole
+            }
         }
     }
+
+   
 
     let i= Math.floor(Math.random()*rows)
     let j= Math.floor(Math.random()*columns)
@@ -78,15 +85,15 @@ class Field {
     j= Math.floor(Math.random()*columns)
     }
 
-    randomArray[i][j]= hat
-    
+    randomArray[i][j]=hat
+
     return randomArray
    
   }
   
 }
 
-const newField = new Field(Field.generateRandomField(10,15,.2))
+const newField = new Field(Field.generateRandomField(10,15,.15))
 
 newField.runGame()
 
@@ -145,8 +152,6 @@ let rowArray = [];
         rowArray[i]=columnArray
         for (let j=0;j<columns;j++) {
             columnArray[j]=fieldCharacter
-            console.log(rowArray)
-            console.log("-")
         }
     }
 
@@ -159,4 +164,15 @@ let rowArray = [];
 /* Next Solution: 
 Fix issue if the holes block at least one route to the hat. 
 Less of an issue when using lower percentage, but still bug-prone.
+*/
+
+ /* This is the cleaner version, but I defactored my version so everythin makes sense to me now.
+ 
+ let randomArray = new Array(rows).fill(0).map(el => new Array(columns))
+    for (let i=0;i<rows;i++) {
+        for (let j=0;j<columns;j++) {
+            const prob = Math.random();
+            randomArray[i][j] = prob > percentage ? fieldCharacter : hole;
+        }
+    }
 */
