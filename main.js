@@ -86,7 +86,7 @@ class Field {
   
 }
 
-const newField = new Field(Field.generateRandomField(4,3,.2))
+const newField = new Field(Field.generateRandomField(10,15,.2))
 
 newField.runGame()
 
