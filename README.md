@@ -1,6 +1,6 @@
-# Excursion
+# Find My Hat
 
->Javascript Game
+>Terminal maze game 
 
 ## Table of contents
 [General info](#General-info)

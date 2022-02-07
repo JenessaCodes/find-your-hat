@@ -22,7 +22,7 @@ class Field {
             this.updateCharacterPath()
         } else if (this._fieldArray[this.a][this.b]===hat) {
             console.log('You win!')
-        playing=false
+            playing=false
         } else if (this._fieldArray[this.a][this.b]===hole||this._fieldArray[this.a][this.b]===undefined){
             console.log('You fell out. Game over.')
             playing=false
